@@ -1,6 +1,6 @@
 package ru.yandex.practicum.exeption;
 
-public class WordNotFoundInDictionaryException extends Exception{
+public class WordNotFoundInDictionaryException extends Exception {
 
     public WordNotFoundInDictionaryException() {
     }
