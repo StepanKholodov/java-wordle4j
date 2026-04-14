@@ -28,7 +28,7 @@ public class WordleDictionary {
     }
 
     public String getWord(int index) {
-       return words.get(index);
+        return words.get(index);
     }
 
     public String getRandomWord() {
@@ -63,7 +63,7 @@ public class WordleDictionary {
 
             if (result[i] != '+') {
                 for (int j = 0; j < secretArrayChar.length; j++) {
-                    if  (secretArrayChar[j] != '_' && guess.charAt(i) == secretArrayChar[j]) {
+                    if (secretArrayChar[j] != '_' && guess.charAt(i) == secretArrayChar[j]) {
                         result[i] = '^';
                         secretArrayChar[j] = '_';
                         break;

@@ -25,7 +25,6 @@ public class Wordle {
     public static void main(String[] args) {
 
 
-
         // try-with-resources гарантирует закрытие лог-файла
         try (PrintWriter logger = new PrintWriter("wordle.log", StandardCharsets.UTF_8)) {
             logger.println("=== Запуск игры Wordle ===");

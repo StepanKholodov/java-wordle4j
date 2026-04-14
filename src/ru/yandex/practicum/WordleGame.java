@@ -16,7 +16,7 @@ public class WordleGame {
 
     private final WordleDictionary dictionary;
 
-    private  final PrintWriter logger;
+    private final PrintWriter logger;
 
     private final Map<String, String> history;
 
