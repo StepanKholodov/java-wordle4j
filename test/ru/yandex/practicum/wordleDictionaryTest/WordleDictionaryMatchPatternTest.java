@@ -40,15 +40,6 @@ class WordleDictionaryMatchPatternTest {
     @DisplayName("Повторяющаяся буква в загаданном слове одна, а в догадке две → вторая помечается '-'")
     void repeatedLetterInGuessButOnlyOneInSecret() {
         String pattern = WordleDictionary.getMatchPattern("арбуз", "баран");
-        // 'а' на позиции 1 (вторая буква) - зелёная? Проверим:
-        // secret: а р б у з
-        // guess:  б а р а н
-        // Позиции: 0:'б' (есть на 2 месте) -> '^'
-        //          1:'а' (есть на 0 месте) -> '^'
-        //          2:'р' (есть на 1 месте) -> '^'
-        //          3:'а' (вторая 'а', но secret уже использовал 'а') -> '-'
-        //          4:'н' (нет) -> '-'
-        // Ожидаем: "^^^--"
         assertEquals("^^^--", pattern);
     }
 

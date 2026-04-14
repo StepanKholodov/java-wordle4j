@@ -19,21 +19,25 @@ public class WordleDictionaryLoader {
     }
 
 
-    public WordleDictionary loadWords() throws IOException{
+    public WordleDictionary loadWords() throws IOException {
         logger.println("Начало загрузки словаря из файла: " + fileName);
         WordleDictionary wordleDictionary = new WordleDictionary(new ArrayList<>());
-        int count = 0;
-        try (BufferedReader bufferedReader = new BufferedReader(
+        int total = 0;
+        int loaded = 0;
+        try (BufferedReader br = new BufferedReader(
                 new FileReader(fileName, StandardCharsets.UTF_8))) {
-
             String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                wordleDictionary.addWord(line);
-                count++;
+            while ((line = br.readLine()) != null) {
+                total++;
+                String normalized = line.trim().toLowerCase().replace('ё', 'е');
+                if (normalized.length() == 5) {
+                    wordleDictionary.addWord(normalized);
+                    loaded++;
+                }
             }
-
         }
-        logger.println("Загружено слов: " + count);
+        logger.println("Всего прочитано строк: " + total);
+        logger.println("Загружено слов (длина 5): " + loaded);
         return wordleDictionary;
     }
 }

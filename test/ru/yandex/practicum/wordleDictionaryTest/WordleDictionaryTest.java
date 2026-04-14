@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import ru.yandex.practicum.WordleDictionary;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,11 +15,9 @@ class WordleDictionaryTest {
 
     @BeforeEach
     void setUp() {
-        // Перед каждым тестом создаём новый пустой словарь
         wordleDictionary = new WordleDictionary(new ArrayList<>());
     }
 
-    // ---------- Тесты добавления слов ----------
 
     @Test
     @DisplayName("Слово с пробелами в начале и конце добавляется без них")
@@ -51,7 +48,6 @@ class WordleDictionaryTest {
         assertEquals("е", wordleDictionary.getWord(0));
     }
 
-    // ---------- Тесты методов доступа ----------
 
     @Test
     @DisplayName("getWord возвращает слово по индексу")

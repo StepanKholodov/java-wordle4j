@@ -1,5 +1,6 @@
 package ru.yandex.practicum;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -20,6 +21,10 @@ public class WordleDictionary {
     public void addWord(String word) {
         String normalized = word.trim().toLowerCase().replace('ё', 'е');
         words.add(normalized);
+    }
+
+    public List<String> getAllWords() {
+        return new ArrayList<>(words);
     }
 
     public String getWord(int index) {
