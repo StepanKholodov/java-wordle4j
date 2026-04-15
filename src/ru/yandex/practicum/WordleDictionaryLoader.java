@@ -24,20 +24,19 @@ public class WordleDictionaryLoader {
         WordleDictionary wordleDictionary = new WordleDictionary(new ArrayList<>());
         int total = 0;
         int loaded = 0;
-        try (BufferedReader br = new BufferedReader(
-                new FileReader(fileName, StandardCharsets.UTF_8))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName, StandardCharsets.UTF_8))) {
             String line;
             while ((line = br.readLine()) != null) {
                 total++;
                 String normalized = line.trim().toLowerCase().replace('ё', 'е');
-                if (normalized.length() == 5) {
+                if (normalized.length() == WordleGame.WORD_LENGTH) {
                     wordleDictionary.addWord(normalized);
                     loaded++;
                 }
             }
         }
         logger.println("Всего прочитано строк: " + total);
-        logger.println("Загружено слов (длина 5): " + loaded);
+        logger.println("Загружено слов (длина " + WordleGame.WORD_LENGTH + " ): " + loaded);
         return wordleDictionary;
     }
 }
